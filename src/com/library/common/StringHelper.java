@@ -634,4 +634,22 @@ public class StringHelper {
             return null;
         }
     }
+
+    /**
+     * Find list.
+     *
+     * @param target the target
+     * @param patten the patten
+     * @return the list
+     */
+    public static List<String> find(String target, String patten) {
+        Pattern p = Pattern.compile(patten);
+        Matcher matcher = p.matcher(target);
+        List<String> lists = new ArrayList<String>();
+        while (matcher.find()) {
+            String name = matcher.group();
+            lists.add(name);
+        }
+        return lists;
+    }
 }
