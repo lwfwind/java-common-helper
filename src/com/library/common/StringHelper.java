@@ -372,22 +372,6 @@ public class StringHelper {
     }
 
     /**
-     * Convert an list of strings to one string.
-     *
-     * @param list      Put an list
-     * @param separator Put the 'separator' string between each element.
-     * @return String string
-     */
-    public static String listToString(List<String> list, String separator) {
-        StringBuilder result = new StringBuilder();
-        for (String s : list) {
-            result.append(s);
-            result.append(separator);
-        }
-        return result.toString();
-    }
-
-    /**
      * This method is used to split the given string into different tokens at
      * the occurrence of specified delimiter
      *
