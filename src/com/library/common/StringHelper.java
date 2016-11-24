@@ -108,6 +108,16 @@ public class StringHelper {
     }
 
     /**
+     * Check if the string is letter or not
+     *
+     * @param str String to be checked
+     * @return boolean boolean
+     */
+    public static boolean isLetter(String str) {
+        return str.matches("^[A-Za-z]+$");
+    }
+
+    /**
      * Url encode string. url转码
      *
      * @param str the str
