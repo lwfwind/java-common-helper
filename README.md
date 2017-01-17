@@ -7,6 +7,6 @@ A library with common java utilities
 <dependency>
     <groupId>com.github.lwfwind.common</groupId>
     <artifactId>java-common-helper</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
 </dependency>
 ```
