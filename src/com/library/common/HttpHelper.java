@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.GZIPInputStream;
 
 /**
  * The type Http helper.
@@ -71,16 +72,23 @@ public class HttpHelper {
             try {
                 url = new URL(urlString);
                 logger.info(urlString);
-                URLConnection connection = url.openConnection();
-                connection.setConnectTimeout(16000);
-                connection.setReadTimeout(16000);
-                for (Object o : headerMap.entrySet()) {
-                    Map.Entry entry = (Map.Entry) o;
-                    String key = (String) entry.getKey();
-                    String val = (String) entry.getValue();
-                    connection.addRequestProperty(key, val);
+                URLConnection httpConn = url.openConnection();
+                httpConn.setConnectTimeout(16000);
+                httpConn.setReadTimeout(16000);
+                if(headerMap.size() > 0) {
+                    for (Object o : headerMap.entrySet()) {
+                        Map.Entry entry = (Map.Entry) o;
+                        String key = (String) entry.getKey();
+                        String val = (String) entry.getValue();
+                        httpConn.addRequestProperty(key, val);
+                    }
                 }
-                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), charset));
+                BufferedReader br;
+                if(headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")){
+                    br = new BufferedReader(new InputStreamReader(new GZIPInputStream(httpConn.getInputStream()), charset));
+                }else {
+                    br = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), charset));
+                }
                 String line = null;
                 while ((line = br.readLine()) != null) {
                     isFetchOK = true;
@@ -153,14 +161,13 @@ public class HttpHelper {
                 httpConn.setDoInput(true);
                 httpConn.setUseCaches(false);
                 httpConn.setRequestMethod("POST");
-                httpConn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                httpConn.setRequestProperty("Connection", "Keep-Alive");
-                httpConn.setRequestProperty("Charset", charset);
-                for (Object o : headerMap.entrySet()) {
-                    Map.Entry entry = (Map.Entry) o;
-                    String key = (String) entry.getKey();
-                    String val = (String) entry.getValue();
-                    httpConn.addRequestProperty(key, val);
+                if(headerMap.size() > 0) {
+                    for (Object o : headerMap.entrySet()) {
+                        Map.Entry entry = (Map.Entry) o;
+                        String key = (String) entry.getKey();
+                        String val = (String) entry.getValue();
+                        httpConn.addRequestProperty(key, val);
+                    }
                 }
                 httpConn.connect();
                 DataOutputStream dos = new DataOutputStream(httpConn.getOutputStream());
@@ -173,11 +180,16 @@ public class HttpHelper {
                 if (HttpURLConnection.HTTP_OK == resultCode) {
                     isFetchOK = true;
                     String line;
-                    BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), charset));
-                    while ((line = responseReader.readLine()) != null) {
+                    BufferedReader br;
+                    if(headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")){
+                        br = new BufferedReader(new InputStreamReader(new GZIPInputStream(httpConn.getInputStream()), charset));
+                    }else {
+                        br = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), charset));
+                    }
+                    while ((line = br.readLine()) != null) {
                         result.add(line);
                     }
-                    responseReader.close();
+                    br.close();
                 }
                 if (isFetchOK) {
                     break;
