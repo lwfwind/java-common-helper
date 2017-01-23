@@ -36,10 +36,25 @@ public class DateTimeHelper {
         return sdf;
     }
 
+    /**
+     * Format string.
+     *
+     * @param date    the date
+     * @param pattern the pattern
+     * @return the string
+     */
     public static String format(Date date, String pattern) {
         return getSdf(pattern).format(date);
     }
 
+    /**
+     * Parse date.
+     *
+     * @param dateStr the date str
+     * @param pattern the pattern
+     * @return the date
+     * @throws ParseException the parse exception
+     */
     public static Date parse(String dateStr, String pattern)
             throws ParseException {
         return getSdf(pattern).parse(dateStr);

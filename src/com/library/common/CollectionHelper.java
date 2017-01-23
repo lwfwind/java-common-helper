@@ -7,6 +7,9 @@ import org.apache.commons.collections4.MapUtils;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * The type Collection helper.
+ */
 public class CollectionHelper {
     /**
      * 判断 Collection 是否为空

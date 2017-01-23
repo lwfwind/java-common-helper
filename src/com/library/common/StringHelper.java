@@ -118,6 +118,24 @@ public class StringHelper {
     }
 
     /**
+     * Extract number string.
+     *
+     * @param str the str
+     * @return the string
+     */
+    public static String extractNumber(String str) {
+        String regex = "\\d+(\\.\\d+)?";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(str);
+        while (m.find()) {
+            if (!"".equals(m.group())) {
+                return m.group();
+            }
+        }
+        return "";
+    }
+
+    /**
      * Url encode string. url转码
      *
      * @param str the str
@@ -261,8 +279,7 @@ public class StringHelper {
      *
      * @param str         the String to check, may be null
      * @param searchChars the chars to search for, may be null
-     * @return the <code>true</code> if any of the chars are found,
-     * <code>false</code> if no match or null input
+     * @return the <code>true</code> if any of the chars are found, <code>false</code> if no match or null input
      * @since 2.4
      */
     public static boolean containsAny(String str, char[] searchChars) {
@@ -285,7 +302,7 @@ public class StringHelper {
      *
      * @param str the String to check
      * @return the trimmed String
-     * @see java.lang.Character#isWhitespace
+     * @see java.lang.Character#isWhitespace java.lang.Character#isWhitespace
      */
     public static String trimAllWhitespace(String str) {
         if (isEmpty(str)) {
@@ -339,7 +356,7 @@ public class StringHelper {
      *
      * @param str the String to uncapitalFirstLetter, may be null
      * @return the uncapitalized String, <code>null</code> if null String input
-     * @see #capitalFirstLetter(String)
+     * @see #capitalFirstLetter(String) #capitalFirstLetter(String)
      * @since 2.0
      */
     public static String uncapitalFirstLetter(String str) {
@@ -355,6 +372,13 @@ public class StringHelper {
         return result.toString();
     }
 
+    /**
+     * Join string.
+     *
+     * @param target    the target
+     * @param separator the separator
+     * @return the string
+     */
     public static String join(Object[] target, String separator) {
         final StringBuilder sb = new StringBuilder();
         if (target.length > 0) {
@@ -367,6 +391,13 @@ public class StringHelper {
         return sb.toString();
     }
 
+    /**
+     * Join string.
+     *
+     * @param target    the target
+     * @param separator the separator
+     * @return the string
+     */
     public static String join(Iterable<?> target, String separator) {
         StringBuilder sb = new StringBuilder();
         Iterator<?> it = target.iterator();
@@ -565,8 +596,7 @@ public class StringHelper {
      * Escapes the characters in a <code>String</code> using XML entities.
      *
      * @param src the <code>String</code> to escape, may be null
-     * @return a new escaped <code>String</code>, <code>null</code> if null
-     * string input
+     * @return a new escaped <code>String</code>, <code>null</code> if null string input
      */
     public static String escape(String src) {
 
@@ -610,9 +640,9 @@ public class StringHelper {
      * Escapes the characters in a {@code String} using XML entities only if the
      * passed boolean is {@code true}.
      *
-     * @param src the {@code String} to escape.
-     * @return a new escaped {@code String} if {@code shouldEscape} is set to
-     * {@code true}, an unchanged {@code String} otherwise.
+     * @param shouldEscape the should escape
+     * @param src          the {@code String} to escape.
+     * @return a new escaped {@code String} if {@code shouldEscape} is set to {@code true}, an unchanged {@code String} otherwise.
      */
     public static String escape(boolean shouldEscape, String src) {
         if (shouldEscape) {

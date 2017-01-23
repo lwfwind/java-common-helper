@@ -152,7 +152,7 @@ public class IOHelper {
         InputStream in = null;
         try {
             in = new URL(url).openStream();
-            return IOUtils.toString(in,"utf-8");
+            return IOUtils.toString(in, "utf-8");
         } catch (IOException e) {
             logger.error(e.toString());
         } finally {

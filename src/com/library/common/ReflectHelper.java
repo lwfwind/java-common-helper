@@ -7,14 +7,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The type Reflect helper.
+ */
 public class ReflectHelper {
 
     /**
      * Sets method.
      *
-     * @param obj        the obj
-     * @param fieldName  the field name
-     * @param value      the value
+     * @param obj       the obj
+     * @param fieldName the field name
+     * @param value     the value
      */
     @SuppressWarnings("unchecked")
     public static void setMethod(Object obj, String fieldName, Object value) {
@@ -61,9 +64,9 @@ public class ReflectHelper {
     /**
      * Sets method.
      *
-     * @param obj        the obj
-     * @param fieldName  the field name
-     * @param value      the value
+     * @param obj       the obj
+     * @param fieldName the field name
+     * @param value     the value
      * @param fieldType the field class
      */
     @SuppressWarnings("unchecked")
@@ -110,9 +113,9 @@ public class ReflectHelper {
     /**
      * Sets method.
      *
-     * @param cls        the cls
-     * @param fieldName  the field name
-     * @param value      the value
+     * @param cls       the cls
+     * @param fieldName the field name
+     * @param value     the value
      * @param fieldType the field class
      */
     @SuppressWarnings("unchecked")
@@ -308,7 +311,7 @@ public class ReflectHelper {
     /**
      * 通过反射创建实例
      *
-     * @param <T>       the type parameter
+     * @param <T>          the type parameter
      * @param commandClass the class
      * @return the t
      */

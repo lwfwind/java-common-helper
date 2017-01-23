@@ -75,7 +75,7 @@ public class HttpHelper {
                 URLConnection httpConn = url.openConnection();
                 httpConn.setConnectTimeout(16000);
                 httpConn.setReadTimeout(16000);
-                if(headerMap.size() > 0) {
+                if (headerMap.size() > 0) {
                     for (Object o : headerMap.entrySet()) {
                         Map.Entry entry = (Map.Entry) o;
                         String key = (String) entry.getKey();
@@ -84,9 +84,9 @@ public class HttpHelper {
                     }
                 }
                 BufferedReader br;
-                if(headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")){
+                if (headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")) {
                     br = new BufferedReader(new InputStreamReader(new GZIPInputStream(httpConn.getInputStream()), charset));
-                }else {
+                } else {
                     br = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), charset));
                 }
                 String line = null;
@@ -161,7 +161,7 @@ public class HttpHelper {
                 httpConn.setDoInput(true);
                 httpConn.setUseCaches(false);
                 httpConn.setRequestMethod("POST");
-                if(headerMap.size() > 0) {
+                if (headerMap.size() > 0) {
                     for (Object o : headerMap.entrySet()) {
                         Map.Entry entry = (Map.Entry) o;
                         String key = (String) entry.getKey();
@@ -181,9 +181,9 @@ public class HttpHelper {
                     isFetchOK = true;
                     String line;
                     BufferedReader br;
-                    if(headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")){
+                    if (headerMap.get("Accept-Encoding") != null && headerMap.get("Accept-Encoding").contains("gzip")) {
                         br = new BufferedReader(new InputStreamReader(new GZIPInputStream(httpConn.getInputStream()), charset));
-                    }else {
+                    } else {
                         br = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), charset));
                     }
                     while ((line = br.readLine()) != null) {
