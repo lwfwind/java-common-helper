@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * General convenience methods for working with date time
@@ -15,6 +17,33 @@ public class DateTimeHelper {
 
     private final static Logger logger = Logger
             .getLogger(DateTimeHelper.class);
+
+    private static ThreadLocal<Map<String, SimpleDateFormat>> sdfMap = new ThreadLocal<Map<String, SimpleDateFormat>>() {
+        @Override
+        protected Map<String, SimpleDateFormat> initialValue() {
+            logger.info(Thread.currentThread().getName() + " init pattern: " + Thread.currentThread());
+            return new HashMap<String, SimpleDateFormat>();
+        }
+    };
+
+    private static SimpleDateFormat getSdf(final String pattern) {
+        Map<String, SimpleDateFormat> stringSimpleDateFormatMap = sdfMap.get();
+        SimpleDateFormat sdf = stringSimpleDateFormatMap.get(pattern);
+        if (sdf == null) {
+            sdf = new SimpleDateFormat(pattern);
+            stringSimpleDateFormatMap.put(pattern, sdf);
+        }
+        return sdf;
+    }
+
+    public static String format(Date date, String pattern) {
+        return getSdf(pattern).format(date);
+    }
+
+    public static Date parse(String dateStr, String pattern)
+            throws ParseException {
+        return getSdf(pattern).parse(dateStr);
+    }
 
     /**
      * Convert string to corresponding date format
