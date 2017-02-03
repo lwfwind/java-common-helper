@@ -17,48 +17,7 @@ public class DateTimeHelper {
 
     private final static Logger logger = Logger
             .getLogger(DateTimeHelper.class);
-
-    private static ThreadLocal<Map<String, SimpleDateFormat>> sdfMap = new ThreadLocal<Map<String, SimpleDateFormat>>() {
-        @Override
-        protected Map<String, SimpleDateFormat> initialValue() {
-            logger.info(Thread.currentThread().getName() + " init pattern: " + Thread.currentThread());
-            return new HashMap<String, SimpleDateFormat>();
-        }
-    };
-
-    private static SimpleDateFormat getSdf(final String pattern) {
-        Map<String, SimpleDateFormat> stringSimpleDateFormatMap = sdfMap.get();
-        SimpleDateFormat sdf = stringSimpleDateFormatMap.get(pattern);
-        if (sdf == null) {
-            sdf = new SimpleDateFormat(pattern);
-            stringSimpleDateFormatMap.put(pattern, sdf);
-        }
-        return sdf;
-    }
-
-    /**
-     * Format string.
-     *
-     * @param date    the date
-     * @param pattern the pattern
-     * @return the string
-     */
-    public static String format(Date date, String pattern) {
-        return getSdf(pattern).format(date);
-    }
-
-    /**
-     * Parse date.
-     *
-     * @param dateStr the date str
-     * @param pattern the pattern
-     * @return the date
-     * @throws ParseException the parse exception
-     */
-    public static Date parse(String dateStr, String pattern)
-            throws ParseException {
-        return getSdf(pattern).parse(dateStr);
-    }
+    
 
     /**
      * Convert string to corresponding date format
