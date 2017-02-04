@@ -30,7 +30,7 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString) {
-        return sendGet(urlString, new HashMap<String, String>(), "UTF-8");
+        return sendGet(urlString, new HashMap<String, String>(), "UTF-8", 25000);
     }
 
     /**
@@ -41,7 +41,11 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString, String charset) {
-        return sendGet(urlString, new HashMap<String, String>(), charset);
+        return sendGet(urlString, new HashMap<String, String>(), charset, 25000);
+    }
+
+    public static List<String> sendGet(String urlString, String charset, int timeout) {
+        return sendGet(urlString, new HashMap<String, String>(), charset, timeout);
     }
 
     /**
@@ -52,7 +56,11 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString, Map<String, String> headerMap) {
-        return sendGet(urlString, headerMap, "UTF-8");
+        return sendGet(urlString, headerMap, "UTF-8", 25000);
+    }
+
+    public static List<String> sendGet(String urlString, Map<String, String> headerMap, int timeout) {
+        return sendGet(urlString, headerMap, "UTF-8", timeout);
     }
 
     /**
@@ -63,7 +71,7 @@ public class HttpHelper {
      * @param charset   the charset
      * @return the list
      */
-    public static List<String> sendGet(String urlString, Map<String, String> headerMap, String charset) {
+    public static List<String> sendGet(String urlString, Map<String, String> headerMap, String charset, int timeout) {
         List<String> ret = new ArrayList<>();
         URL url = null;
         int tryCount = 0;
@@ -73,8 +81,8 @@ public class HttpHelper {
                 url = new URL(urlString);
                 logger.info(urlString);
                 URLConnection httpConn = url.openConnection();
-                httpConn.setConnectTimeout(16000);
-                httpConn.setReadTimeout(16000);
+                httpConn.setConnectTimeout(timeout);
+                httpConn.setReadTimeout(timeout);
                 if (headerMap.size() > 0) {
                     for (Object o : headerMap.entrySet()) {
                         Map.Entry entry = (Map.Entry) o;
