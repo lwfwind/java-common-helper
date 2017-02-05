@@ -17,7 +17,7 @@ public class DateTimeHelper {
 
     private final static Logger logger = Logger
             .getLogger(DateTimeHelper.class);
-    
+
 
     /**
      * Convert string to corresponding date format

@@ -30,7 +30,7 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString) {
-        return sendGet(urlString, new HashMap<String, String>(), "UTF-8", 25000);
+        return sendGet(urlString, new HashMap<String, String>(), "UTF-8", 16000);
     }
 
     /**
@@ -41,9 +41,17 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString, String charset) {
-        return sendGet(urlString, new HashMap<String, String>(), charset, 25000);
+        return sendGet(urlString, new HashMap<String, String>(), charset, 16000);
     }
 
+    /**
+     * Send get list.
+     *
+     * @param urlString the url string
+     * @param charset   the charset
+     * @param timeout   the timeout
+     * @return the list
+     */
     public static List<String> sendGet(String urlString, String charset, int timeout) {
         return sendGet(urlString, new HashMap<String, String>(), charset, timeout);
     }
@@ -56,9 +64,17 @@ public class HttpHelper {
      * @return the list
      */
     public static List<String> sendGet(String urlString, Map<String, String> headerMap) {
-        return sendGet(urlString, headerMap, "UTF-8", 25000);
+        return sendGet(urlString, headerMap, "UTF-8", 16000);
     }
 
+    /**
+     * Send get list.
+     *
+     * @param urlString the url string
+     * @param headerMap the header map
+     * @param timeout   the timeout
+     * @return the list
+     */
     public static List<String> sendGet(String urlString, Map<String, String> headerMap, int timeout) {
         return sendGet(urlString, headerMap, "UTF-8", timeout);
     }
@@ -69,6 +85,7 @@ public class HttpHelper {
      * @param urlString the url string
      * @param headerMap the header map
      * @param charset   the charset
+     * @param timeout   the timeout
      * @return the list
      */
     public static List<String> sendGet(String urlString, Map<String, String> headerMap, String charset, int timeout) {
