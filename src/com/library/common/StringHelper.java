@@ -210,13 +210,12 @@ public class StringHelper {
      * @return value unquoted, null if input is null.
      */
     public static String unquote(String str) {
-        String outputstr = null;
         if (str != null
                 && ((str.startsWith("\"") && str.endsWith("\"")) || (str
                 .startsWith("'") && str.endsWith("'")))) {
-            outputstr = str.substring(1, str.length() - 1);
+            return str.substring(1, str.length() - 1);
         }
-        return outputstr;
+        return str;
     }
 
     /**
