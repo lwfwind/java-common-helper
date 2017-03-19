@@ -15,7 +15,6 @@ import java.util.Map;
  */
 public class JsonHelper {
 
-    private static ThreadLocal<String> threadLocal = new ThreadLocal<String>();
     /**
      * 简单判断是否是json格式的字符串
      *
@@ -34,15 +33,14 @@ public class JsonHelper {
                 Map.Entry<String, JsonNode> field = fieldsIterator.next();
                 String value = StringHelper.unquote(String.valueOf(field.getValue()));
                 pairMap.put(field.getKey(), value);
-                if(!parentKey.equals("")) {
-                    pairMap.put(parentKey+"."+field.getKey(), value);
+                if (!parentKey.equals("")) {
+                    pairMap.put(parentKey + "." + field.getKey(), value);
                 }
                 if (isJson(value)) {
-                    if(parentKey.equals("")) {
-                        recursionGetPairs(pairMap, mapper, value,field.getKey());
-                    }
-                    else {
-                        recursionGetPairs(pairMap, mapper, value,parentKey+"."+field.getKey());
+                    if (parentKey.equals("")) {
+                        recursionGetPairs(pairMap, mapper, value, field.getKey());
+                    } else {
+                        recursionGetPairs(pairMap, mapper, value, parentKey + "." + field.getKey());
                     }
                 }
             }
@@ -51,6 +49,12 @@ public class JsonHelper {
         }
     }
 
+    /**
+     * Parse json to pairs map.
+     *
+     * @param json the json
+     * @return the map
+     */
     public static Map<String, String> parseJsonToPairs(String json) {
         Map<String, String> pairMap = new HashMap<String, String>();
         JsonFactory factory = new JsonFactory();
@@ -58,11 +62,16 @@ public class JsonHelper {
         mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
         mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         if (isJson(json)) {
-            recursionGetPairs(pairMap, mapper, json,"");
+            recursionGetPairs(pairMap, mapper, json, "");
         }
         return pairMap;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         String jsonStr = "{\n" +
                 " \"api\": \"mtop.film.mtoporderapi.getticketdetail\",\n" +

@@ -1,5 +1,8 @@
 package com.library.common;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.log4j.Logger;
+
 import javax.tools.*;
 import javax.tools.JavaCompiler.CompilationTask;
 import javax.tools.JavaFileObject.Kind;
@@ -15,6 +18,7 @@ import java.util.regex.Pattern;
  * Java字节码的操纵之动态编译
  */
 public class DynamicCompileHelper {
+    private final static Logger logger = Logger.getLogger(DynamicCompileHelper.class);
     /**
      * 源代码
      */
@@ -48,28 +52,17 @@ public class DynamicCompileHelper {
     }
 
     /**
-     * Eval string object.
-     *
-     * @param stringToEval the string to eval
-     * @return the object
-     * @throws Exception the exception
-     */
-    public static Object evalString(String stringToEval) throws Exception {
-        String methodName = "Compiler";
-        DynamicCompileHelper dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompilerString {public static Object Compiler(){return \"" + stringToEval + "\";}}", "./target/classes");
-        return dynamicComiler.Invoke(methodName);
-    }
-
-    /**
      * Eval calculate object.
      *
      * @param stringToEval the string to eval
      * @return the object
      * @throws Exception the exception
      */
-    public static Object evalCalculate(String stringToEval) throws Exception {
-        String methodName = "Compiler";
-        DynamicCompileHelper dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompilerCalculate {public static Object Compiler(){return " + stringToEval + ";}}", "./target/classes");
+    public static Object eval(String stringToEval) throws Exception {
+        logger.info("eval:"+stringToEval);
+        String methodName = "eval";
+        DynamicCompileHelper dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + ";}}", "./target/classes");
         return dynamicComiler.Invoke(methodName);
     }
 
@@ -81,8 +74,9 @@ public class DynamicCompileHelper {
      */
     public static void main(String[] args) throws Exception {
         String stringToEval = "(4+3)*8/2";
-        String stringToEval2 = "test";
-
+        String stringToEval2 = "2==2";
+        System.out.println(DynamicCompileHelper.eval(stringToEval));
+        System.out.println(DynamicCompileHelper.eval(stringToEval2));
     }
 
     /**
@@ -107,6 +101,7 @@ public class DynamicCompileHelper {
         try {
             Class classDef = classLoader.loadClass(className);
             Method method = classDef.getMethod(methodName);
+            method.setAccessible(true);
             return method.invoke(null);
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,7 +117,6 @@ public class DynamicCompileHelper {
      * @throws Exception 忽略所有异常（建议调整）
      */
     public Object Invoke(String methodName) throws Exception {
-        Object result = null;
         if (this.doCompile()) {
             return doInvoke(methodName);
         }

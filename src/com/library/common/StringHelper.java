@@ -301,7 +301,7 @@ public class StringHelper {
      *
      * @param str the String to check
      * @return the trimmed String
-     * @see java.lang.Character#isWhitespace java.lang.Character#isWhitespacejava.lang.Character#isWhitespace
+     * @see java.lang.Character#isWhitespace java.lang.Character#isWhitespacejava.lang.Character#isWhitespacejava.lang.Character#isWhitespacejava.lang.Character#isWhitespace
      */
     public static String trimAllWhitespace(String str) {
         if (isEmpty(str)) {
@@ -355,7 +355,7 @@ public class StringHelper {
      *
      * @param str the String to uncapitalFirstLetter, may be null
      * @return the uncapitalized String, <code>null</code> if null String input
-     * @see #capitalFirstLetter(String) #capitalFirstLetter(String)#capitalFirstLetter(String)
+     * @see #capitalFirstLetter(String) #capitalFirstLetter(String)#capitalFirstLetter(String)#capitalFirstLetter(String)#capitalFirstLetter(String)
      * @since 2.0
      */
     public static String uncapitalFirstLetter(String str) {
