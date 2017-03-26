@@ -178,6 +178,375 @@ public class JsonHelper {
                 " \"v\": \"5.0\"\n" +
                 "}";
         parseJsonToPairs(jsonStr);
+
+        jsonStr="{\n" +
+                "\t\"api\": \"mtop.film.mtoporderapi.getbiztickets\",\n" +
+                "\t\"data\": {\n" +
+                "\t\t\"returnCode\": \"0\",\n" +
+                "\t\t\"returnValue\": {\n" +
+                "\t\t\t\"isEnd\": \"true\",\n" +
+                "\t\t\t\"mark\": \"SEAT:20:true,COUPON:0:false,FCODE:0:false,1\",\n" +
+                "\t\t\t\"nowTime\": \"1490020592\",\n" +
+                "\t\t\t\"tickets\": [\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490015781\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"3号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490015816\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490015799\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"7排11座\",\n" +
+                "\t\t\t\t\t\t\"7排10座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490152380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490145000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490015781170999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 2D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490014811\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"3号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490014821\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490014820\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"3排8座\",\n" +
+                "\t\t\t\t\t\t\"3排7座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490152380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490145000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490014811189999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 2D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490013434\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"REFUNDING\",\n" +
+                "\t\t\t\t\t\"hallName\": \"2号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490014821\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490013450\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"2排6座\",\n" +
+                "\t\t\t\t\t\t\"2排7座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490149680\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490142300\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490013434360999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490013346\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"5号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490013351\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490013350\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"2排8座\",\n" +
+                "\t\t\t\t\t\t\"2排9座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490056380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490049000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490013346350999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490013215\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"REFUNDING\",\n" +
+                "\t\t\t\t\t\"hallName\": \"5号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490013351\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490013240\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"3排9座\",\n" +
+                "\t\t\t\t\t\t\"3排10座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490056380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490049000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490013215917999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490012942\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"5号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490012951\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490012950\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"6排7座\",\n" +
+                "\t\t\t\t\t\t\"6排8座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490023980\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490016600\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490012942682999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490011951\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"5号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490012232\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490012228\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"7排7座\",\n" +
+                "\t\t\t\t\t\t\"7排8座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490056380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490049000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"194773400420231\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"WKFZGG3\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490008404\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"REFUNDING\",\n" +
+                "\t\t\t\t\t\"hallName\": \"5号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490012231\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490008461\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"5排7座\",\n" +
+                "\t\t\t\t\t\t\"5排8座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490056380\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490049000\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490008404303999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"WKFZGG3\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"1\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1490002405\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"TRADE_SUCCESS\",\n" +
+                "\t\t\t\t\t\"hallName\": \"3号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1490002411\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1490002410\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"saleGoods\": \"爆米花\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"1排12座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490023680\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490016300\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1490002405548999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t},\n" +
+                "\t\t\t\t{\n" +
+                "\t\t\t\t\t\"bizType\": \"SEAT\",\n" +
+                "\t\t\t\t\t\"cinemaId\": \"11095105\",\n" +
+                "\t\t\t\t\t\"cinemaName\": \"大地新电商测试影院\",\n" +
+                "\t\t\t\t\t\"codes\": [\n" +
+                "\t\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\t\"code\": \"14014307\",\n" +
+                "\t\t\t\t\t\t\t\"name\": \"取票号\"\n" +
+                "\t\t\t\t\t\t}\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"count\": \"2\",\n" +
+                "\t\t\t\t\t\"createTime\": \"1489993772\",\n" +
+                "\t\t\t\t\t\"displayOrder\": [\n" +
+                "\t\t\t\t\t\t\"1\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"fcodeBuyer\": \"true\",\n" +
+                "\t\t\t\t\t\"fullTicketStatus\": \"REFUNDING\",\n" +
+                "\t\t\t\t\t\"hallName\": \"2号厅\",\n" +
+                "\t\t\t\t\t\"hasOnlineSales\": \"false\",\n" +
+                "\t\t\t\t\t\"modifiedTime\": \"1489996486\",\n" +
+                "\t\t\t\t\t\"payEndTime\": \"1489993810\",\n" +
+                "\t\t\t\t\t\"poster\": \"i1/TB1f5IXXXXXXXbJXFXXXXXXXXXX_.jpg\",\n" +
+                "\t\t\t\t\t\"seatList\": [\n" +
+                "\t\t\t\t\t\t\"3排6座\",\n" +
+                "\t\t\t\t\t\t\"3排7座\"\n" +
+                "\t\t\t\t\t],\n" +
+                "\t\t\t\t\t\"showEndTime\": \"1490054880\",\n" +
+                "\t\t\t\t\t\"showId\": \"129346948\",\n" +
+                "\t\t\t\t\t\"showName\": \"魔兽\",\n" +
+                "\t\t\t\t\t\"showTime\": \"1490047500\",\n" +
+                "\t\t\t\t\t\"status\": \"CANUSE\",\n" +
+                "\t\t\t\t\t\"tbOrderId\": \"1489993772738999\",\n" +
+                "\t\t\t\t\t\"ticketContent\": \"{\\\"codes\\\":{\\\"取票号\\\":\\\"14014307\\\"},\\\"info\\\":\\\"请您使用【取票号】到影院【大地数字影院】自助终端机或柜台取票，并对号入座。如有问题致电淘宝客服：0571-88157838\\\"}\",\n" +
+                "\t\t\t\t\t\"version\": \"国语 英语 3D\"\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t]\n" +
+                "\t\t}\n" +
+                "\t},\n" +
+                "\t\"ret\": [\n" +
+                "\t\t\"SUCCESS::调用成功\"\n" +
+                "\t],\n" +
+                "\t\"v\": \"5.0\"\n" +
+                "}";
+        parseJsonToPairs(jsonStr);
     }
 
 }

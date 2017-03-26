@@ -61,8 +61,22 @@ public class DynamicCompileHelper {
     public static Object eval(String stringToEval) throws Exception {
         logger.info("eval:"+stringToEval);
         String methodName = "eval";
-        DynamicCompileHelper dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
-                .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + ";}}", "./target/classes");
+        DynamicCompileHelper dynamicComiler = null;
+        if(stringToEval.contains("return")) {
+            dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                    .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){" + stringToEval + "}}", "./target/classes");
+
+        }
+        else{
+            if(!StringHelper.isLetter(stringToEval)) {
+                dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                        .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + ";}}", "./target/classes");
+            }
+            else{
+                dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                        .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return \"" + stringToEval + "\";}}", "./target/classes");
+            }
+        }
         return dynamicComiler.Invoke(methodName);
     }
 
@@ -75,8 +89,12 @@ public class DynamicCompileHelper {
     public static void main(String[] args) throws Exception {
         String stringToEval = "(4+3)*8/2";
         String stringToEval2 = "2==2";
+        String stringToEval3 = "test";
+        String stringToEval4 = "if(200==200){                 return \"约课成功\";                 }                 return \"约课失败\";";
         System.out.println(DynamicCompileHelper.eval(stringToEval));
         System.out.println(DynamicCompileHelper.eval(stringToEval2));
+        System.out.println(DynamicCompileHelper.eval(stringToEval3));
+        System.out.println(DynamicCompileHelper.eval(stringToEval4));
     }
 
     /**
