@@ -69,8 +69,14 @@ public class DynamicCompileHelper {
         }
         else{
             if(!StringHelper.isLetter(stringToEval)) {
-                dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
-                        .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + ";}}", "./target/classes");
+                if(stringToEval.length() < 10) {
+                    dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                            .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + ";}}", "./target/classes");
+                }
+                else{
+                    dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
+                            .md5Hex(stringToEval).toUpperCase() + " {public static Object eval(){return " + stringToEval + "L;}}", "./target/classes");
+                }
             }
             else{
                 dynamicComiler = new DynamicCompileHelper("package com.qa.util; class AutoCompiler" + DigestUtils
