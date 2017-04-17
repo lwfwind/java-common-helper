@@ -2,6 +2,7 @@ package com.library.common;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 
 import javax.tools.*;
 import javax.tools.JavaCompiler.CompilationTask;
@@ -105,6 +106,11 @@ public class DynamicCompileHelper {
         System.out.println(DynamicCompileHelper.eval(stringToEval2));
         System.out.println(DynamicCompileHelper.eval(stringToEval3));
         System.out.println(DynamicCompileHelper.eval(stringToEval4));
+
+        Assert.assertEquals(DynamicCompileHelper.eval(stringToEval),28);
+        Assert.assertEquals(DynamicCompileHelper.eval(stringToEval2),true);
+        Assert.assertEquals(DynamicCompileHelper.eval(stringToEval3),"test");
+        Assert.assertEquals(DynamicCompileHelper.eval(stringToEval4),"约课成功");
     }
 
     /**
