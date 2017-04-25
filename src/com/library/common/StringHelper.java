@@ -450,7 +450,8 @@ public class StringHelper {
      * @return the tokens list
      */
     public static String getBetweenString(String origiString, String beforeStr, String afterStr) {
-        return origiString.substring(origiString.indexOf(beforeStr) + beforeStr.length(), origiString.indexOf(afterStr));
+        String afterSearchStr = origiString.substring(origiString.indexOf(beforeStr) + beforeStr.length());
+        return afterSearchStr.substring(0, afterSearchStr.indexOf(afterStr));
     }
 
     /**
