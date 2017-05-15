@@ -4,6 +4,7 @@ package com.library.common;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.*;
@@ -12,6 +13,8 @@ import java.util.*;
  * The type Json helper.
  */
 public class JsonHelper {
+    private final static Logger logger = Logger
+            .getLogger(JsonHelper.class);
 
     private static final TypeReference<?> MAP_TYPE = new MapTypeReference();
 
@@ -93,7 +96,7 @@ public class JsonHelper {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
     }
 

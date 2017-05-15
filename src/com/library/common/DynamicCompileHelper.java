@@ -138,7 +138,7 @@ public class DynamicCompileHelper {
             method.setAccessible(true);
             return method.invoke(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
         return null;
     }

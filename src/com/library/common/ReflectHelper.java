@@ -1,5 +1,7 @@
 package com.library.common;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,6 +13,8 @@ import java.util.List;
  * The type Reflect helper.
  */
 public class ReflectHelper {
+    private final static Logger logger = Logger.getLogger(ReflectHelper.class);
+
 
     /**
      * Sets method.
@@ -57,7 +61,7 @@ public class ReflectHelper {
                 method.invoke(obj, Double.valueOf(value.toString()));
             }
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException | NoSuchFieldException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
     }
 
@@ -106,7 +110,7 @@ public class ReflectHelper {
                 method.invoke(obj, Double.valueOf(value.toString()));
             }
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
     }
 
@@ -154,7 +158,7 @@ public class ReflectHelper {
                 method.invoke(cls, Double.valueOf(value.toString()));
             }
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
     }
 
@@ -182,7 +186,7 @@ public class ReflectHelper {
             }
 
         } catch (InvocationTargetException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
     }
 
@@ -242,7 +246,7 @@ public class ReflectHelper {
             try {
                 return method.invoke(obj).toString();
             } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage(),e);
             }
         } else {
             for (Field field : fields) {
@@ -257,7 +261,7 @@ public class ReflectHelper {
                     stringBuilder.append(", ");
                     field.setAccessible(accessFlag);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage(),e);
                 }
             }
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);

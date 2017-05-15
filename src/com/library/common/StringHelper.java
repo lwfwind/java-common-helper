@@ -148,7 +148,7 @@ public class StringHelper {
             logger.info("转码后:" + value);
             return value;
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
         return null;
     }
@@ -166,7 +166,7 @@ public class StringHelper {
             //logger.info("转码后:" + value);
             return value;
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(),e);
         }
         return null;
     }
