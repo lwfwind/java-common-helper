@@ -123,6 +123,9 @@ public class HttpHelper {
                 if (isFetchOK) {
                     break;
                 }
+                else {
+                    tryCount++;
+                }
             } catch (IOException e) {
                 tryCount++;
                 logger.error("error in sendGet", e);
@@ -218,6 +221,9 @@ public class HttpHelper {
                 }
                 if (isFetchOK) {
                     break;
+                }
+                else {
+                    tryCount++;
                 }
             } catch (IOException e) {
                 tryCount++;
